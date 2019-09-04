@@ -12,24 +12,13 @@ ul li {
   margin: 1em 0;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.App-body {
-  width: 75%;
-  align-items: center;
-  display: inline-block;
-}
-
 .App-link {
-  color: #61dafb;
+  color: #0166ee;
+}
+
+.add-comment {
+  text-align: center;
+  font-size: small;
 }
 
 .container {

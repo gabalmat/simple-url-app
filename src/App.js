@@ -4,44 +4,73 @@ import Form from './components/Form.jsx'
 import Table from './components/Table.jsx'
 
 class App extends Component {
-  state = {
-    data: []
-  }
+    backendURL = 'http://127.0.0.1:5000'
+    state = {
+        data: []
+    }
 
-  // GET request to API for all urls
-  componentDidMount() {
-      const url = 'http://127.0.0.1:5000/api/urls/'
+    // GET request to API for all urls
+    componentDidMount() {
+        const url = this.backendURL + '/api/urls/'
+        fetch(url)
+        .then(result => result.json())
+        .then(result => {
+            this.setState({
+                data: result
+            })
+        })
+    }
 
-      fetch(url)
-          .then(result => result.json())
-          .then(result => {
-              this.setState({
-                  data: result
-              })
-          })
-  }
+    handleSubmit = urlEntry => {
+        // POST the URL and Comment if one exists
+        const endpoint = this.backendURL + '/api/addurl'
+        const body = {
+            uri: urlEntry.url
+        }
 
-  // handleSubmit = character => {
-  //   this.setState({characters: [...this.state.characters, character]});
-  // }
+        if (urlEntry.hasOwnProperty('comment')) {
+            body['comment'] = urlEntry.comment
+        }
 
-  render() {
-    const { data } = this.state;
+        fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+        .then(result => result.json())
+        .then(result => {
+            if (result.hasOwnProperty('status') && result.status === 'error') {
+                alert(result.message)
+            }
+            else {
+                const entry = {
+                    uri: result.uri,
+                    comments: result.comments
+                }
 
-    return (
-        <div className="container">
-          <h1>Simple URL App</h1>
-          <p>Add a URL with comments to the table</p>
+                this.setState({data: [entry, ...this.state.data]});
+            }
+        })
+    }
 
-          <h3>Add New</h3>
-          {/*<Form handleSubmit={this.handleSubmit} />*/}
+    render() {
+        const { data } = this.state;
 
-          <Table
-              apiData={data}
-          />
-        </div>
-    );
-  }
+        return (
+            <div className="container">
+                <h1>Simple URL App</h1>
+                <h4>Add a New URL and Comment:</h4>
+
+                <Form handleSubmit={this.handleSubmit} />
+
+                <Table
+                    apiData={data}
+                />
+            </div>
+        );
+    }
 }
 
 export default App;
