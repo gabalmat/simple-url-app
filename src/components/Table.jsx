@@ -4,23 +4,29 @@ const TableHeader = () => {
     return (
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Remove</th>
+            <th>URL</th>
+            <th>Comments</th>
         </tr>
         </thead>
     )
 };
 
+const CommentSection = (props) => {
+    const { comments } = props
+
+    const result = comments.map((entry, index) => {
+        return <li key={index}>{entry.comment}</li>
+    })
+
+    return <ul>{result}</ul>
+}
+
 const TableBody = (props) => {
-    const rows = props.characterData.map((row, index) => {
+    const rows = props.apiData.map((row, index) => {
         return (
             <tr key={index}>
-                <td>{row.name}</td>
-                <td>{row.job}</td>
-                <td>
-                    <button onClick={() => props.removeCharacter(index)}>Delete</button>
-                </td>
+                <td>{row.uri}</td>
+                <td><CommentSection comments={row.comments} /></td>
             </tr>
         )
     });
@@ -30,12 +36,12 @@ const TableBody = (props) => {
 
 class Table extends Component {
     render() {
-        const { characterData, removeCharacter } = this.props
+        const { apiData } = this.props
 
         return (
             <table>
                 <TableHeader />
-                <TableBody characterData={characterData} removeCharacter={removeCharacter}/>
+                <TableBody apiData={apiData} />
             </table>
         )
     }

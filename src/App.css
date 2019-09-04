@@ -3,6 +3,15 @@ span {
   padding: 0 10px;
 }
 
+ul {
+  list-style: decimal;
+  text-indent: 0.5em;
+}
+
+ul li {
+  margin: 1em 0;
+}
+
 .App {
   text-align: center;
 }
