@@ -23,7 +23,7 @@ have already been added to the database. Use the text inputs to add more.
 
 *Additional Notes:*
  - Although URLs can have more than one comment, the UI isn't set up to allow inputting multiple comments
-for a single URL.  Additional comments can be added to a URL using the '/api/addcomment' API endpoint and will be 
+for a single URL.  Additional comments can be added to a URL using the `/api/addcomment` API endpoint and will be 
 displayed in the UI.
  
- - The API endpoint is hardcoded in `App.js`.  If running the API locally, open `App.js` in a text editor and change line 7 to say `backendURL = 'http://localhost:5000`
+ - The API endpoint is hardcoded in `App.js`.  If running the API locally, open `App.js` in a text editor and change line 7 to say `backendURL = 'http://localhost:5000'`
