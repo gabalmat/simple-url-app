@@ -2,7 +2,7 @@
 A simple React.js frontend for the [Simple URL API](https://github.com/gabalmat/simple-url-api)
 
 ### Description
-This application is not deployed, so you will need to run it locally. It is, however, already configured to access 
+This application is not deployed to a web server, so you will need to run it locally. It is, however, already configured to access 
 the currently deployed API endpoints.
 
 ### Assumptions:
