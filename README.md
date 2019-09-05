@@ -5,11 +5,12 @@ A simple React.js frontend for the [Simple URL API](https://github.com/gabalmat/
 This application is not deployed, so you will need to run it locally. It is, however, already configured to access 
 the currently deployed API endpoints.
 
-### To Initialize the Node Modules
-Assumptions:
+### Assumptions:
+ - You have cloned this repo locally
  - You have npm installed
  - cwd is the top-level `simple-url-app` directory
- 
+
+### To Initialize the Node Modules
 Make sure you have npm and then run the follow command:
 
 ```npm install```
