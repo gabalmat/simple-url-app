@@ -4,7 +4,7 @@ import Form from './components/Form.jsx'
 import Table from './components/Table.jsx'
 
 class App extends Component {
-    backendURL = 'http://127.0.0.1:5000'
+    backendURL = 'http://simpleapi-env.fug94qcwar.us-east-2.elasticbeanstalk.com/'
     state = {
         data: []
     }
