@@ -10,7 +10,7 @@ the currently deployed API endpoints.
  - You have npm installed
  - cwd is the top-level `simple-url-app` directory
 
-### To Initialize the Node Modules
+### To Install the Node Modules
 Make sure you have npm and then run the follow command:
 
 ```npm install```
