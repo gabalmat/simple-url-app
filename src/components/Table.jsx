@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 
+/**
+ * Table Component for displaying URLs and their Comments
+ */
 const TableHeader = () => {
     return (
         <thead>

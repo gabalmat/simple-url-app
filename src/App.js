@@ -21,8 +21,9 @@ class App extends Component {
         })
     }
 
+    // Handler for Submit button
+    // POST the URL and Comment (if a comment exists)
     handleSubmit = urlEntry => {
-        // POST the URL and Comment if one exists
         const endpoint = this.backendURL + '/api/addurl'
         const body = {
             uri: urlEntry.url

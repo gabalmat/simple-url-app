@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/**
+ * Form Component for user input
+ */
 class Form extends Component {
     constructor(props) {
         super(props)
@@ -12,6 +15,7 @@ class Form extends Component {
         this.state = this.initialState
     }
 
+    // On change handler for input text boxes
     handleChange = (event) => {
         const { name, value } = event.target
 
@@ -20,6 +24,7 @@ class Form extends Component {
         })
     };
 
+    // On click handler for the Submit button
     submitForm = () => {
         this.props.handleSubmit(this.state)
         this.setState(this.initialState)
